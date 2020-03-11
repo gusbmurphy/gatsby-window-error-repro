@@ -12,6 +12,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 
+import Art from "./bg-art"
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -37,9 +39,26 @@ const Layout = ({ children }) => {
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a href="https://www.gatsbyjs.org">Ratsby</a>
         </footer>
       </div>
+      <div
+          style={{
+            position: `fixed`,
+            top: 0,
+            left: 0,
+            zIndex: -100,
+            width: `100%`,
+            height: `100%`,
+          }}
+        >
+          <Art
+            name="pts_anim"
+            background="white"
+            pause="false"
+            style={{ height: "100%" }}
+          />
+        </div>
     </>
   )
 }
